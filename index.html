@@ -1,0 +1,958 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>CIO Circle — Institutional investing, made personal</title>
+<meta name="description" content="CIO Circle brings institutional investment expertise to Asian families: a personal Chief Investment Officer, exclusive multi-asset funds, a proprietary AI engine and a circle of leading global CIOs.">
+<link rel="icon" href="assets/img/logo-bronze.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1A1714; --espresso:#272019; --espresso-d:#1E1813; --paper:#F4EEE3; --cream:#F4EEE3;
+  --sand:#E7DCC9; --stone:#C9BBA2; --taupe:#8A7F6B; --mist:#A89C88; --line:#E2D9C8;
+  --bronze:#9C6F3F; --bronze-lt:#C08E4F; --bronze-d:#80592F;
+  --serif:"Newsreader",Georgia,serif; --sans:"Hanken Grotesk",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --gut:clamp(20px,5vw,72px); --max:1240px;
+  --sec:clamp(112px,15vw,200px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.7 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--bronze-lt);color:var(--cream)}
+:focus-visible{outline:1.5px solid var(--bronze-lt);outline-offset:4px}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.eyebrow{font:500 11.5px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--bronze)}
+.dark .eyebrow{color:var(--bronze-lt)}
+h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.012em;line-height:1.08}
+h2{font-size:clamp(36px,4.6vw,62px)}
+h2 em,h1 em{font-style:italic;color:var(--bronze)}
+.dark h2 em,.dark h1 em{color:var(--bronze-lt)}
+.lead{font:300 clamp(18px,1.6vw,21px)/1.65 var(--sans);color:#4A433A;max-width:36em}
+.dark{background:var(--espresso);color:var(--cream)}
+.dark .lead{color:rgba(244,238,227,.72)}
+section{position:relative}
+.sec{padding:var(--sec) 0}
+.rule{height:1px;background:var(--line);border:0}
+.dark .rule{background:rgba(244,238,227,.12)}
+
+.btn{display:inline-flex;align-items:center;gap:14px;font:500 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:19px 30px;border:1px solid currentColor;border-radius:2px;transition:background .5s var(--ease),color .5s var(--ease),border-color .5s var(--ease)}
+.btn .ar{transition:transform .5s var(--ease)}
+.btn:hover .ar{transform:translateX(4px)}
+.btn-solid{background:var(--cream);color:var(--espresso);border-color:var(--cream)}
+.btn-solid:hover{background:transparent;color:var(--cream)}
+.btn-line{color:var(--cream);border-color:rgba(244,238,227,.35)}
+.btn-line:hover{border-color:var(--cream)}
+.btn-ink{background:var(--espresso);color:var(--cream);border-color:var(--espresso)}
+.btn-ink:hover{background:transparent;color:var(--espresso)}
+.link{font:500 12.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:6px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(16px);transition:opacity 1.2s var(--ease),transform 1.2s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}
+
+/* ---------- header ---------- */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:40;transition:background .6s var(--ease),border-color .6s var(--ease);border-bottom:1px solid transparent}
+.hdr.solid{background:rgba(39,32,25,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-color:rgba(244,238,227,.08)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:92px;transition:height .6s var(--ease)}
+.hdr.solid .wrap{height:74px}
+.brand img{height:50px;width:auto;transition:height .6s var(--ease)}
+.hdr.solid .brand img{height:42px}
+.nav{display:flex;align-items:center;gap:clamp(22px,2.6vw,40px);color:var(--cream)}
+.nav a{font:400 13px/1 var(--sans);letter-spacing:.1em;color:rgba(244,238,227,.72);transition:color .4s}
+.nav a:hover{color:var(--cream)}
+.nav a:not(.cta){position:relative}
+.nav a:not(.cta)::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:1px;background:var(--bronze-lt);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.nav a.active{color:var(--cream)}
+.nav a.active::after{transform:scaleX(1)}
+.mnav a.active{color:var(--bronze-lt)}
+.nav .cta{color:var(--cream);border:1px solid rgba(244,238,227,.35);padding:12px 18px;border-radius:2px;letter-spacing:.14em;text-transform:uppercase;font-size:11.5px;font-weight:500}
+.nav .cta:hover{border-color:var(--cream)}
+.menu-btn{display:none;color:var(--cream);font:500 11.5px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;padding:12px 0}
+.mnav{position:fixed;inset:0;z-index:39;background:var(--espresso);color:var(--cream);display:flex;flex-direction:column;justify-content:center;padding:0 var(--gut);gap:26px;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
+.mnav.open{opacity:1;visibility:visible}
+.mnav a{font:300 34px/1.1 var(--serif)}
+@media (max-width:960px){.nav{display:none}.menu-btn{display:block}}
+
+/* ---------- hero ---------- */
+.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;isolation:isolate}
+.galaxy{position:absolute;z-index:-1;right:-18vw;top:50%;width:min(1180px,108vw);aspect-ratio:1;transform:translateY(-52%);pointer-events:none;
+  -webkit-mask:radial-gradient(circle,#000 46%,transparent 71%);mask:radial-gradient(circle,#000 46%,transparent 71%)}
+.galaxy svg{width:100%;height:100%;overflow:visible}
+.galaxy circle.r{fill:none;stroke:rgba(192,142,79,.16);stroke-width:1;vector-effect:non-scaling-stroke}
+.galaxy circle.r.draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.6s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.orbit{transform-origin:600px 600px;animation:orbit 90s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.hero .wrap{width:100%;padding-top:150px;padding-bottom:clamp(56px,8vh,96px)}
+.hero h1{font-size:clamp(34px,4.9vw,73px);max-width:11.5em;margin:28px 0 36px}
+.hero .lead{max-width:33em}
+.hero-cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:48px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) clamp(300px,25vw,360px);gap:clamp(32px,3.4vw,48px);align-items:center}
+@media (max-width:1080px){.hero-grid{grid-template-columns:1fr}}
+/* linkedin feed */
+.feed-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.feed-lbl{display:inline-flex;align-items:center;gap:10px;font:400 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:rgba(244,238,227,.6)}
+.feed-lbl svg{width:14px;height:14px;color:rgba(244,238,227,.75)}
+.feed-follow{font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--bronze-lt);border-bottom:1px solid rgba(192,142,79,.4);padding-bottom:4px}
+.feed-follow:hover{border-color:var(--bronze-lt)}
+.feed-frame{position:relative;height:clamp(400px,54vh,520px);border-radius:6px;overflow:hidden;background:#fff;border:1px solid rgba(244,238,227,.16);box-shadow:0 40px 80px -36px rgba(0,0,0,.7)}
+.feed-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:none}
+.feed-frame iframe.on{display:block}
+.post{position:absolute;inset:0;display:none;flex-direction:column;padding:28px 28px 26px;background:var(--paper);color:var(--ink)}
+.post.on{display:flex}
+.post .who{display:flex;align-items:center;gap:12px}
+.post .who img{width:40px;height:40px;border-radius:4px;background:var(--espresso);padding:4px}
+.post .who b{display:block;font:500 14.5px/1.2 var(--sans)}
+.post .who span{font:400 11px/1.4 var(--mono);letter-spacing:.08em;color:var(--taupe);text-transform:uppercase}
+.post p{margin-top:22px;font:300 clamp(20px,1.7vw,24px)/1.38 var(--serif);flex:1}
+.post a{align-self:flex-start;font:500 11.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--bronze);border-bottom:1px solid rgba(156,111,63,.4);padding-bottom:5px}
+.feed-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px}
+.feed-meta{font:300 13.5px/1.4 var(--sans);color:rgba(244,238,227,.7)}
+.feed-dots{display:flex;gap:6px;flex:none}
+.feed-dots button{width:22px;height:22px;display:grid;place-items:center}
+.feed-dots button::before{content:"";width:6px;height:6px;border-radius:50%;background:rgba(244,238,227,.3);transition:background .5s,transform .5s}
+.feed-dots button[aria-current="true"]::before{background:var(--bronze-lt);transform:scale(1.3)}
+@media (max-width:1080px){.feed{max-width:560px}}
+/* linkedin */
+.li{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;color:rgba(244,238,227,.7);transition:color .4s}
+.li:hover{color:var(--cream)}
+.li svg{width:16px;height:16px}
+.li-sm{display:inline-flex;vertical-align:middle;margin-left:10px;color:var(--taupe);transition:color .4s;position:relative;top:-2px}
+.li-sm:hover{color:var(--bronze)}
+.li-sm svg{width:15px;height:15px}
+.veterans{margin-top:52px}
+.veterans .lbl{font:400 11.5px/1.5 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:rgba(244,238,227,.55)}
+.logos{display:flex;flex-wrap:wrap;align-items:center;gap:22px 28px;margin-top:22px}
+.logos img{width:auto;max-width:none;filter:brightness(0) invert(1) sepia(.2);opacity:.8}
+@media (max-width:640px){.logos{gap:18px 30px}.logos img{transform:scale(.85);transform-origin:left center}}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(64px,10vh,112px);border-top:1px solid rgba(244,238,227,.14)}
+.facts div{padding:26px 24px 0 0}
+.facts b{display:block;font:300 clamp(26px,2.6vw,36px)/1 var(--serif);color:var(--cream);margin-bottom:12px}
+.facts span{font:400 12px/1.5 var(--mono);letter-spacing:.08em;color:rgba(244,238,227,.55);text-transform:uppercase}
+@media (max-width:720px){.facts{grid-template-columns:1fr}.facts div{padding:22px 0;border-bottom:1px solid rgba(244,238,227,.1)}}
+
+/* hero photo */
+.hero-bg{position:absolute;inset:0;z-index:-3;width:100%;height:100%;object-fit:cover;object-position:50% 58%;filter:saturate(.92) brightness(.9)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
+  linear-gradient(180deg,rgba(30,24,19,.62) 0%,rgba(30,24,19,0) 22%),
+  linear-gradient(0deg,rgba(30,24,19,.94) 0%,rgba(30,24,19,.35) 48%,rgba(30,24,19,0) 70%),
+  linear-gradient(90deg,rgba(30,24,19,.9) 0%,rgba(30,24,19,.62) 48%,rgba(30,24,19,.12) 100%)}
+.hero .galaxy{opacity:.55}
+
+/* ---------- vistas ---------- */
+.vista{position:relative;height:clamp(440px,82vh,860px);overflow:hidden;display:flex;align-items:flex-end;color:var(--cream);background:var(--espresso)}
+.vista img{position:absolute;left:0;top:-8%;width:100%;height:116%;object-fit:cover;will-change:transform}
+.vista::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(30,24,19,.78) 0%,rgba(30,24,19,.18) 45%,rgba(30,24,19,0) 70%)}
+.vista .wrap{position:relative;z-index:1;width:100%;padding-bottom:clamp(52px,8vw,104px)}
+.vista .eyebrow{color:rgba(244,238,227,.75)}
+.vista p{font:300 clamp(32px,4.4vw,62px)/1.12 var(--serif);letter-spacing:-.012em;max-width:15em;margin-top:22px}
+.vista p em{color:#E3BE8C}
+
+/* ---------- conviction ---------- */
+.conv{text-align:center}
+.conv .eyebrow{display:block;margin-bottom:44px}
+.conv blockquote{font:300 clamp(30px,3.7vw,50px)/1.28 var(--serif);max-width:20em;margin:0 auto;letter-spacing:-.01em}
+.conv blockquote em{color:var(--bronze)}
+.conv p{margin:56px auto 0;max-width:40em;color:#5A5247;font-weight:300}
+.mark{width:56px;margin:0 auto 56px;opacity:.9}
+
+/* ---------- pillars ---------- */
+.head2{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:clamp(64px,8vw,112px)}
+.head2 .eyebrow{display:block;margin-bottom:28px}
+@media (max-width:860px){.head2{grid-template-columns:1fr}}
+.pillars{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--stone)}
+.pillar{padding:56px 56px 64px 0;border-bottom:1px solid var(--line)}
+.pillar:nth-child(odd){border-right:1px solid var(--line)}
+.pillar:nth-child(even){padding-left:56px;padding-right:0}
+.pillar .no{font:400 12px/1 var(--mono);letter-spacing:.2em;color:var(--bronze);text-transform:uppercase;display:flex;gap:18px;align-items:center}
+.pillar .no::after{content:"";width:28px;height:1px;background:var(--bronze);opacity:.5}
+.pillar h3{font-size:clamp(28px,2.6vw,38px);margin:28px 0 20px}
+.pillar p{color:#5A5247;font-weight:300;max-width:30em}
+.pillar ul{list-style:none;margin-top:26px;display:flex;flex-wrap:wrap;gap:8px}
+.pillar li{font:400 11.5px/1 var(--mono);letter-spacing:.08em;color:var(--taupe);border:1px solid var(--line);padding:9px 12px;border-radius:2px}
+@media (max-width:860px){.pillars{grid-template-columns:1fr}.pillar,.pillar:nth-child(odd),.pillar:nth-child(even){padding:48px 0;border-right:0}}
+
+/* ---------- process ---------- */
+.proc{background:var(--sand)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);position:relative;margin-top:clamp(64px,8vw,104px)}
+.steps::before{content:"";position:absolute;left:0;right:0;top:7px;height:1px;background:var(--stone)}
+.step{position:relative;padding-right:28px}
+.step .dot{width:15px;height:15px;border-radius:50%;background:var(--sand);border:1px solid var(--bronze);position:relative;margin-bottom:40px}
+.step:last-child .dot{background:var(--bronze)}
+.step .n{font:400 11.5px/1 var(--mono);letter-spacing:.2em;color:var(--bronze);text-transform:uppercase}
+.step h3{font-size:clamp(24px,2.1vw,30px);margin:16px 0 12px}
+.step p{font-size:15px;color:#5A5247;font-weight:300;line-height:1.6}
+@media (max-width:860px){.steps{grid-template-columns:1fr;gap:44px;padding-left:40px}.steps::before{left:7px;right:auto;top:8px;bottom:8px;width:1px;height:auto}.step .dot{position:absolute;left:-40px;top:4px;margin:0}}
+
+/* CIO sign-off */
+.signoff{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:center;margin-top:clamp(72px,9vw,120px);padding-top:clamp(48px,6vw,72px);border-top:1px solid var(--stone)}
+.signoff img{width:clamp(140px,15vw,200px);aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;border-radius:2px;filter:sepia(.08) saturate(.94);box-shadow:0 24px 48px -28px rgba(39,32,25,.45)}
+.signoff .eyebrow{display:block;margin-bottom:20px}
+.signoff blockquote{font:300 clamp(26px,2.6vw,38px)/1.22 var(--serif);letter-spacing:-.01em;max-width:22em}
+.signoff blockquote em{color:var(--bronze)}
+.signoff p{margin-top:18px;max-width:38em;color:#5A5247;font-weight:300}
+.signoff .who{display:flex;align-items:center;gap:16px;margin-top:26px}
+.signoff .who::before{content:"";width:28px;height:1px;background:var(--bronze)}
+.signoff .who b{font:400 19px/1 var(--serif)}
+.signoff .who span{font:400 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--taupe)}
+@media (max-width:640px){.signoff{grid-template-columns:1fr}.signoff .who{flex-wrap:wrap}}
+
+/* ---------- platform ---------- */
+.plat{overflow:hidden}
+.plat-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,6vw,96px);align-items:center;margin-top:clamp(64px,8vw,104px)}
+.tabs{display:flex;flex-direction:column}
+.tab{text-align:left;padding:30px 0;border-top:1px solid rgba(244,238,227,.12);transition:opacity .6s var(--ease)}
+.tab:last-child{border-bottom:1px solid rgba(244,238,227,.12)}
+.tab .n{font:400 11.5px/1 var(--mono);letter-spacing:.2em;color:var(--bronze-lt);text-transform:uppercase}
+.tab h3{font-size:clamp(26px,2.3vw,32px);margin:14px 0 0;color:var(--cream)}
+.tab p{font-size:15.5px;font-weight:300;line-height:1.65;color:rgba(244,238,227,.66);max-height:0;overflow:hidden;opacity:0;transition:max-height .8s var(--ease),opacity .8s var(--ease),margin .8s var(--ease)}
+.tab[aria-selected="true"] p{max-height:12em;opacity:1;margin-top:14px}
+.tab[aria-selected="false"]{opacity:.48}
+.tab[aria-selected="false"]:hover{opacity:.8}
+.screen{position:relative;border-radius:6px;padding:10px;background:linear-gradient(160deg,rgba(244,238,227,.10),rgba(244,238,227,.03));border:1px solid rgba(244,238,227,.12);box-shadow:0 40px 80px -30px rgba(0,0,0,.55)}
+.screen .vp{position:relative;aspect-ratio:16/10;border-radius:3px;overflow:hidden;background:#0a1220;filter:sepia(.42) saturate(.78) hue-rotate(-14deg) brightness(.98)}
+.screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:0 0;opacity:0;transition:opacity 1s var(--ease)}
+.screen img.on{opacity:1}
+.cap{margin-top:22px;font:400 11.5px/1.6 var(--mono);letter-spacing:.06em;color:rgba(244,238,227,.42)}
+@media (max-width:960px){.plat-grid{grid-template-columns:1fr}.shot{order:-1}}
+
+/* ---------- CIO ---------- */
+.cio-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(48px,8vw,128px);align-items:center}
+.portrait{position:relative}
+.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;filter:sepia(.08) saturate(.94);border-radius:2px}
+.portrait::after{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--stone);z-index:-1;border-radius:2px}
+.cio-grid h2{margin:28px 0 10px}
+.role{font:400 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--taupe)}
+.creds{list-style:none;display:grid;grid-template-columns:1fr 1fr;margin-top:52px;border-top:1px solid var(--stone)}
+.creds li{padding:22px 20px 22px 0;border-bottom:1px solid var(--line);font:300 18px/1.45 var(--serif)}
+.creds li:nth-child(even){padding-left:20px;border-left:1px solid var(--line)}
+@media (max-width:860px){.cio-grid{grid-template-columns:1fr}.portrait{max-width:420px}}
+@media (max-width:520px){.creds{grid-template-columns:1fr}.creds li:nth-child(even){padding-left:0;border-left:0}}
+
+/* ---------- fees ---------- */
+.fees{border-top:1px solid var(--line)}
+.fee-main{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--stone);border-bottom:1px solid var(--line)}
+.fee-main div{padding:clamp(40px,5vw,64px) clamp(24px,4vw,56px) clamp(40px,5vw,64px) 0}
+.fee-main div+div{padding-left:clamp(24px,4vw,56px);border-left:1px solid var(--line)}
+.fee-main .k{font:400 11.5px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--bronze)}
+.fee-main b{display:block;font:300 clamp(64px,8vw,112px)/1 var(--serif);letter-spacing:-.02em;margin:26px 0 18px}
+.fee-main b small{font-size:.32em;letter-spacing:0;color:var(--taupe);margin-left:10px}
+.fee-main p{color:#5A5247;font-weight:300;max-width:24em}
+.zeros{display:grid;grid-template-columns:repeat(5,1fr);margin-top:clamp(56px,7vw,88px)}
+.zeros div{padding:8px 20px 8px 0}
+.zeros div+div{padding-left:20px;border-left:1px solid var(--line)}
+.zeros b{display:block;font:300 clamp(40px,4vw,56px)/1 var(--serif);color:var(--bronze)}
+.zeros span{display:block;margin-top:14px;font:400 11.5px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--taupe)}
+.aligned{margin-top:clamp(72px,9vw,120px);background:var(--espresso);color:var(--cream);border-radius:2px;padding:clamp(44px,6vw,80px);display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.aligned .eyebrow{color:var(--bronze-lt);white-space:nowrap}
+.aligned p{font:300 clamp(26px,2.8vw,40px)/1.25 var(--serif);letter-spacing:-.01em}
+.aligned p em{color:var(--bronze-lt)}
+.fn{font:500 .55em/0 var(--mono);margin-left:2px;vertical-align:super}
+.fn a{color:var(--bronze);border-bottom:1px solid transparent}
+.fn a:hover{border-color:var(--bronze)}
+.fee-notes sup{font:500 .8em/0 var(--mono);color:var(--bronze);margin-right:3px}
+.fee-notes #fn-hurdle{color:#5A5247}
+.fee-notes{margin-top:28px;font-size:12.5px;line-height:1.7;color:var(--taupe);max-width:60em}
+@media (max-width:860px){.fee-main{grid-template-columns:1fr}.fee-main div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}.zeros{grid-template-columns:1fr 1fr;row-gap:36px}.zeros div:nth-child(odd){padding-left:0;border-left:0}.aligned{grid-template-columns:1fr}}
+
+/* ---------- circle ---------- */
+.circle-head{display:grid;grid-template-columns:7fr 5fr;gap:48px;align-items:end}
+.circle-head .eyebrow{display:block;margin-bottom:28px}
+.photo{margin-top:clamp(64px,8vw,104px);position:relative;overflow:hidden;border-radius:2px}
+.photo img{width:100%;aspect-ratio:1600/470;object-fit:cover;filter:sepia(.45) saturate(.85) hue-rotate(-10deg) brightness(.82)}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(39,32,25,0) 40%,rgba(39,32,25,.55));pointer-events:none}
+.photo figcaption{position:absolute;left:24px;bottom:20px;z-index:1;font:400 11.5px/1.5 var(--mono);letter-spacing:.08em;color:rgba(244,238,227,.75)}
+.cfacts{display:grid;grid-template-columns:repeat(3,1fr);margin-top:64px}
+.cfacts div{padding:0 32px 0 0}
+.cfacts div+div{padding-left:32px;border-left:1px solid rgba(244,238,227,.12)}
+.cfacts b{display:block;font:300 clamp(30px,3vw,44px)/1 var(--serif);margin-bottom:14px}
+.cfacts span{font-weight:300;font-size:15.5px;color:rgba(244,238,227,.66)}
+@media (max-width:860px){.circle-head{grid-template-columns:1fr}.photo img{aspect-ratio:4/3}.cfacts{grid-template-columns:1fr;gap:36px}.cfacts div,.cfacts div+div{padding:0;border:0}}
+
+/* ---------- team ---------- */
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(24px,2.6vw,40px)}
+.member img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 25%;filter:sepia(.08) saturate(.94);border-radius:2px;background:var(--sand)}
+.member h3{font-size:26px;margin:28px 0 8px}
+.member .role{display:block;margin-bottom:18px;font-size:11px;line-height:1.5}
+.member p{font-size:15px;line-height:1.65;color:#5A5247;font-weight:300}
+@media (max-width:1000px){.team{grid-template-columns:1fr 1fr;row-gap:64px}}
+@media (max-width:520px){.team{grid-template-columns:1fr}}
+
+/* ---------- foundations ---------- */
+.found{background:var(--sand)}
+.fgrid{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--stone);margin-top:clamp(56px,7vw,88px)}
+.fgrid div{padding:32px 24px 8px 0}
+.fgrid div+div{padding-left:24px;border-left:1px solid rgba(201,187,162,.6)}
+.fgrid dt{font:400 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--bronze);margin-bottom:18px}
+.fgrid dd{font:300 19px/1.4 var(--serif)}
+@media (max-width:1000px){.fgrid{grid-template-columns:1fr 1fr}.fgrid div,.fgrid div+div{padding:28px 0;border-left:0;border-bottom:1px solid rgba(201,187,162,.6)}.fgrid div:nth-child(even){padding-left:24px;border-left:1px solid rgba(201,187,162,.6)}}
+@media (max-width:520px){.fgrid{grid-template-columns:1fr}.fgrid div:nth-child(even){padding-left:0;border-left:0}}
+
+/* ---------- contact ---------- */
+.contact{text-align:center;overflow:hidden;isolation:isolate}
+.contact-bg{position:absolute;inset:0;z-index:-3;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.contact::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(39,32,25,.9),rgba(39,32,25,.62) 50%,rgba(30,24,19,.92))}
+.contact .galaxy{right:auto;left:50%;top:50%;transform:translate(-50%,-50%);width:min(980px,120vw)}
+.contact h2{font-size:clamp(44px,6vw,86px);margin:32px 0 28px}
+.contact .lead{margin:0 auto}
+.contact .btn{margin-top:52px}
+/* enquiry form */
+.enq{max-width:820px;margin:56px auto 0;text-align:left;background:rgba(244,238,227,.04);border:1px solid rgba(244,238,227,.14);border-radius:3px;padding:clamp(28px,5vw,56px);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.enq .grid{display:grid;grid-template-columns:1fr 1fr;gap:28px 32px}
+.enq .full{grid-column:1/-1}
+.fld label{display:block;font:400 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:rgba(244,238,227,.6);margin-bottom:12px}
+.fld label i{font-style:normal;color:rgba(244,238,227,.35);letter-spacing:.08em;text-transform:none}
+.fld input,.fld select,.fld textarea{width:100%;font:300 17px/1.4 var(--sans);color:var(--cream);background:transparent;border:0;border-bottom:1px solid rgba(244,238,227,.25);border-radius:0;padding:8px 0 12px;outline:none;transition:border-color .4s var(--ease);-webkit-appearance:none;appearance:none}
+.fld select{background-image:linear-gradient(45deg,transparent 50%,rgba(244,238,227,.6) 50%),linear-gradient(135deg,rgba(244,238,227,.6) 50%,transparent 50%);background-position:calc(100% - 10px) 52%,calc(100% - 5px) 52%;background-size:5px 5px;background-repeat:no-repeat;padding-right:24px}
+.fld select option{color:var(--ink)}
+.fld textarea{resize:vertical;min-height:96px}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--bronze-lt)}
+.fld input::placeholder,.fld textarea::placeholder{color:rgba(244,238,227,.3)}
+.enq .chk{margin-top:32px;color:rgba(244,238,227,.72);font-size:14px}
+.enq .chk input{background:transparent;border-color:rgba(244,238,227,.4)}
+.enq .chk input:checked{background:var(--cream);border-color:var(--cream)}
+.enq .chk input:checked::after{border-color:var(--espresso)}
+.enq .row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:36px}
+.enq .note{font:400 11.5px/1.6 var(--mono);letter-spacing:.06em;color:rgba(244,238,227,.4);max-width:32em}
+.enq .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.enq .status{margin-top:20px;font-size:14.5px;color:#E3BE8C;min-height:1.5em}
+.enq.sent .grid,.enq.sent .chk,.enq.sent .row{display:none}
+.enq .thanks{display:none;text-align:center;padding:24px 0}
+.enq.sent .thanks{display:block}
+.enq .thanks h3{font-size:clamp(30px,3vw,40px);margin:18px 0 14px}
+.enq .thanks p{color:rgba(244,238,227,.7);font-weight:300}
+@media (max-width:640px){.enq .grid{grid-template-columns:1fr}}
+.addr{margin-top:72px;font:400 12px/1.8 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(244,238,227,.5)}
+
+/* ---------- footer ---------- */
+footer{background:var(--espresso-d);color:rgba(244,238,227,.6);padding:80px 0 56px;font-size:13px}
+.ftop{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;padding-bottom:48px;border-bottom:1px solid rgba(244,238,227,.08)}
+.ftop img{height:56px;width:auto}
+.flinks{display:flex;gap:28px;flex-wrap:wrap}
+.flinks a,.flinks button{font:400 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(244,238,227,.6)}
+.flinks a:hover,.flinks button:hover{color:var(--cream)}
+.disc{margin-top:40px;font-size:12px;line-height:1.75;color:rgba(244,238,227,.42);max-width:72em}
+.disc p+p{margin-top:12px}
+.copy{margin-top:32px;font:400 11px/1 var(--mono);letter-spacing:.12em;color:rgba(244,238,227,.35);text-transform:uppercase}
+
+/* ---------- disclaimer gate ---------- */
+.gate{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(26,21,16,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;visibility:hidden;transition:opacity .7s var(--ease),visibility .7s}
+.gate.open{opacity:1;visibility:visible}
+.gate-card{width:min(760px,100%);max-height:calc(100svh - 40px);display:flex;flex-direction:column;background:var(--paper);color:var(--ink);border-radius:3px;box-shadow:0 60px 120px -40px rgba(0,0,0,.6);transform:translateY(14px);transition:transform .9s var(--ease)}
+.gate.open .gate-card{transform:none}
+.gate-hd{padding:44px 52px 28px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.gate-hd h2{font-size:clamp(32px,3.4vw,42px);margin-top:18px}
+.gate-hd img{height:56px;width:auto;flex:none}
+.gate-bd{padding:28px 52px;overflow-y:auto;font-size:14.5px;line-height:1.7;color:#4A433A}
+.gate-bd h4{font:500 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--bronze);margin:26px 0 10px}
+.gate-bd h4:first-child{margin-top:0}
+.gate-ft{padding:26px 52px 36px;border-top:1px solid var(--line);background:#EFE7DA}
+.chk{display:flex;gap:14px;align-items:flex-start;font-size:14.5px;line-height:1.55;cursor:pointer}
+.chk input{appearance:none;-webkit-appearance:none;flex:none;width:20px;height:20px;border:1px solid var(--taupe);border-radius:2px;margin-top:1px;display:grid;place-items:center;background:var(--paper);cursor:pointer}
+.chk input:checked{background:var(--espresso);border-color:var(--espresso)}
+.chk input:checked::after{content:"";width:9px;height:5px;border:solid var(--cream);border-width:0 0 1.5px 1.5px;transform:rotate(-45deg) translate(1px,-1px)}
+.gate-actions{display:flex;gap:14px;margin-top:24px;flex-wrap:wrap}
+.gate-actions .btn{padding:17px 26px}
+.gate-actions .btn[disabled]{opacity:.35;cursor:not-allowed}
+.btn-ghost{color:var(--taupe);border-color:var(--stone)}
+.btn-ghost:hover{color:var(--ink);border-color:var(--ink)}
+.declined{display:none;padding:56px 52px;text-align:center}
+.gate.decl .gate-hd,.gate.decl .gate-bd,.gate.decl .gate-ft{display:none}
+.gate.decl .declined{display:block}
+.declined p{max-width:30em;margin:20px auto 32px;color:#4A433A}
+body.locked{overflow:hidden}
+@media (max-width:600px){.gate-hd,.gate-bd,.gate-ft{padding-left:24px;padding-right:24px}.gate-hd img{display:none}.gate-hd{padding-top:32px}.declined{padding:40px 24px}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+  .galaxy circle.r.draw{stroke-dashoffset:0}
+}
+</style>
+</head>
+<body class="locked">
+
+<!-- ======= Important information (shown on arrival) ======= -->
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <div class="gate-card">
+    <div class="gate-hd">
+      <div>
+        <span class="eyebrow">Before you continue</span>
+        <h2 id="gate-title">Important information</h2>
+      </div>
+      <img src="assets/img/logo-ink.png" alt="">
+    </div>
+    <div class="gate-bd" tabindex="0">
+      <h4>Professional Investors only</h4>
+      <p>This website is intended solely for Professional Investors as defined in the Securities and Futures Ordinance (Cap. 571) of Hong Kong and its subsidiary legislation, or persons of an equivalent status in their own jurisdiction. It is not directed at, and must not be relied upon by, the general public or any person in a jurisdiction where its publication or availability would be contrary to local law or regulation.</p>
+      <h4>Not for US Persons</h4>
+      <p>The information on this website is not directed at, and the funds described are not available to, US Persons or persons resident in the United States.</p>
+      <h4>No offer or advice</h4>
+      <p>The content of this website is provided for information only. It does not constitute an offer, solicitation or recommendation to buy or sell any security, fund or other financial product, nor investment, legal, tax or accounting advice. Any investment may be made only on the basis of the final offering memorandum and subscription documents, which are available from the Investment Manager on request.</p>
+      <h4>Regulatory status</h4>
+      <p>The funds referred to on this website have not been authorised by the Securities and Futures Commission of Hong Kong, and the content of this website has not been reviewed by any regulatory authority in Hong Kong or elsewhere.</p>
+      <h4>Risk</h4>
+      <p>All investments involve risk and may result in both profit and loss, including the loss of the capital invested. A fund of funds is also exposed to the risks of its underlying funds, including limited liquidity and an additional layer of fees. Past performance is no indication or guarantee of future performance. Analyses produced by our AI engine and any figures shown on this website rely on historical data and modelling assumptions; they are illustrative only and are not forecasts. You should consider your own financial situation and consult your professional advisers before making any investment decision.</p>
+    </div>
+    <div class="gate-ft">
+      <label class="chk"><input type="checkbox" id="gate-ok"> <span>I confirm that I am a Professional Investor, that I am not a US Person, and that I have read and accept the information above.</span></label>
+      <div class="gate-actions">
+        <button class="btn btn-ink" id="gate-enter" disabled>Enter website <span class="ar">→</span></button>
+        <button class="btn btn-ghost" id="gate-decline">I do not accept</button>
+      </div>
+    </div>
+    <div class="declined">
+      <span class="eyebrow">Access restricted</span>
+      <h2 style="font-size:36px;margin-top:18px">Thank you for your interest.</h2>
+      <p>This website is available only to Professional Investors who accept the important information. For general enquiries, please write to <a href="mailto:info@ciocircle.co" style="border-bottom:1px solid">info@ciocircle.co</a>.</p>
+      <button class="btn btn-ghost" id="gate-back">Return to the notice</button>
+    </div>
+  </div>
+</div>
+
+<!-- ======= Header ======= -->
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="CIO Circle — home"><img src="assets/img/logo-cream.png" alt="CIO Circle"></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#proposition">Proposition</a>
+      <a href="#approach">Approach</a>
+      <a href="#platform">Platform</a>
+      <a href="#fees">Fees</a>
+      <a href="#circle">The Circle</a>
+      <a href="#team">Team</a>
+      <a class="li" href="https://www.linkedin.com/company/ciocircle/" target="_blank" rel="noopener noreferrer" aria-label="CIO Circle on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+      <a class="cta" href="#contact">Arrange a conversation</a>
+    </nav>
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mnav">Menu</button>
+  </div>
+</header>
+<nav class="mnav" id="mnav" aria-label="Mobile">
+  <a href="#proposition">Proposition</a>
+  <a href="#approach">Approach</a>
+  <a href="#platform">Platform</a>
+  <a href="#fees">Fees</a>
+  <a href="#circle">The Circle</a>
+  <a href="#team">Team</a>
+  <a href="#contact">Contact</a>
+  <a href="https://www.linkedin.com/company/ciocircle/" target="_blank" rel="noopener noreferrer" style="font:400 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:rgba(244,238,227,.6);margin-top:12px">LinkedIn ↗</a>
+</nav>
+
+<main id="top">
+
+<!-- ======= Hero ======= -->
+<section class="hero dark">
+  <img class="hero-bg" src="assets/scenery/manhattan.jpg" alt="" fetchpriority="high">
+  <div class="galaxy" aria-hidden="true">
+    <svg viewBox="0 0 1200 1200">
+      <circle class="r draw" pathLength="1" cx="600" cy="600" r="150"/>
+      <circle class="r draw" pathLength="1" cx="600" cy="600" r="250" style="animation-delay:.15s"/>
+      <circle class="r draw" pathLength="1" cx="600" cy="600" r="350" style="animation-delay:.3s"/>
+      <circle class="r draw" pathLength="1" cx="600" cy="600" r="450" style="animation-delay:.45s"/>
+      <circle class="r draw" pathLength="1" cx="600" cy="600" r="550" style="animation-delay:.6s"/>
+      <defs>
+        <radialGradient id="halo"><stop offset="0" stop-color="#DCA662" stop-opacity=".38"/><stop offset="1" stop-color="#DCA662" stop-opacity="0"/></radialGradient>
+        <radialGradient id="core"><stop offset="0" stop-color="#FFF8E8"/><stop offset=".45" stop-color="#E9C08A"/><stop offset="1" stop-color="#C08E4F" stop-opacity="0"/></radialGradient>
+      </defs>
+      <g class="orbit">
+        <circle cx="353" cy="353" r="36" fill="url(#halo)"/>
+        <circle cx="353" cy="353" r="7" fill="url(#core)"/>
+      </g>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="hero-grid">
+    <div class="hero-main">
+    <span class="eyebrow rv">CIO Circle</span>
+    <h1 class="rv d1">Institutional investing,<br> <em>made personal.</em></h1>
+    <p class="lead rv d2">Bespoke CIO for Asian families, enabling institutional access to exclusive funds, a circle of the world’s leading CIOs and a proprietary AI engine that tests every decision.</p>
+    <div class="hero-cta rv d3">
+      <a class="btn btn-solid" href="#contact">Arrange a conversation <span class="ar">→</span></a>
+      <a class="btn btn-line" href="#proposition">Our proposition</a>
+    </div>
+    <div class="veterans rv d3">
+      <p class="lbl">Built by experienced industry veterans from:</p>
+      <div class="logos">
+        <img src="assets/logos/mckinsey.svg" alt="McKinsey &amp; Company" style="height:21px">
+        <img src="assets/logos/quantumblack.png" alt="QuantumBlack, AI by McKinsey" style="height:30px">
+        <img src="assets/logos/lombard-odier.svg" alt="Lombard Odier" style="height:48px">
+        <img src="assets/logos/frontpoint.png" alt="FrontPoint Partners" style="height:44px">
+        <img src="assets/logos/morgan-stanley.svg" alt="Morgan Stanley" style="height:28px">
+      </div>
+    </div>
+    </div>
+    <aside class="feed rv d2" aria-label="Latest from CIO Circle on LinkedIn">
+      <div class="feed-hd"><span class="feed-lbl"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Latest on LinkedIn</span><a class="feed-follow" href="https://www.linkedin.com/company/ciocircle/" target="_blank" rel="noopener noreferrer">Follow ↗</a></div>
+      <div class="feed-frame">
+        <iframe class="on" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7516685096272162816" title="CIO Circle on LinkedIn: Adam Rozencwajg joins us in Hong Kong" loading="lazy" allowfullscreen></iframe>
+        <iframe data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7514258432971956224" title="CIO Circle on LinkedIn: Partnering with Esperanza on AI-driven allocation" loading="lazy" allowfullscreen></iframe>
+        <iframe data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7483182477352648704" title="CIO Circle on LinkedIn: Leap East: 65 meetings in 3 days" loading="lazy" allowfullscreen></iframe>
+      </div>
+      <div class="feed-bar"><span class="feed-meta" aria-live="polite">Adam Rozencwajg joins us in Hong Kong</span><div class="feed-dots"><button type="button" data-t="Adam Rozencwajg joins us in Hong Kong" aria-label="Show post 1" aria-current="true"></button><button type="button" data-t="Partnering with Esperanza on AI-driven allocation" aria-label="Show post 2"></button><button type="button" data-t="Leap East: 65 meetings in 3 days" aria-label="Show post 3"></button></div></div>
+    </aside>
+    </div>
+    <div class="facts rv d3">
+      <div><b>~US$100B</b><span>Combined AUM of our CIO circle</span></div>
+      <div><b>5,000+</b><span>Funds screened for every portfolio</span></div>
+      <div><b>Quarterly</b><span>Review of every portfolio by our CIO</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= Conviction ======= -->
+<section class="conv sec">
+  <div class="wrap">
+    <img class="mark rv" src="assets/img/logo-bronze.png" alt="">
+    <span class="eyebrow rv">Who are we</span>
+    <blockquote class="rv d1">For generations, the finest investment thinking has been reserved for institutions. We believe every family deserves <em>its own Chief Investment Officer.</em></blockquote>
+    <p class="rv d2">CIO Circle manages a Cayman Islands–registered SPC fund of funds, so that every client receives a bespoke advisory service: our CIO sets each client’s portfolio across exclusive private hedge funds and select opportunities.</p>
+  </div>
+</section>
+
+<section class="vista" aria-label="The long view">
+  <img src="assets/scenery/mountains.jpg" alt="">
+  <div class="wrap">
+    <span class="eyebrow rv">The long view</span>
+    <p class="rv d1">Built for the long view, <em>across generations.</em></p>
+  </div>
+</section>
+
+<!-- ======= Proposition ======= -->
+<section class="sec" id="proposition">
+  <div class="wrap">
+    <div class="head2">
+      <div>
+        <span class="eyebrow rv">The proposition</span>
+        <h2 class="rv d1">Four commitments <em>to every family.</em></h2>
+      </div>
+      <p class="lead rv d2">A bespoke CIO platform that brings institutional investment expertise to Asian families, with the clarity and control a family should expect.</p>
+    </div>
+    <div class="pillars">
+      <article class="pillar rv">
+        <span class="no">01 · Personal CIO</span>
+        <h3>A portfolio built around your family, not a model.</h3>
+        <p>Each portfolio is custom-made from your existing investments, your appetite for risk and your investment goals. You keep full control and visibility, and our CIO reviews it every quarter.</p>
+        <ul><li>Existing investments</li><li>Appetite for risk</li><li>Investment goals</li></ul>
+      </article>
+      <article class="pillar rv d1">
+        <span class="no">02 · Exclusive funds</span>
+        <h3>Funds usually reserved for institutions.</h3>
+        <p>Curated global multi-asset funds, vetted and co-invested in by our CIO, chosen to preserve and grow client wealth across market cycles.</p>
+        <ul><li>Vetted</li><li>Co-invested</li><li>Multi-asset</li></ul>
+      </article>
+      <article class="pillar rv">
+        <span class="no">03 · Proprietary AI</span>
+        <h3>An engine built by an ex-McKinsey team.</h3>
+        <p>An AI-powered engine supports every stage of our investment process. It was built by a team that worked at QuantumBlack, McKinsey’s AI-focused consultancy.</p>
+        <ul><li>Screen</li><li>Construct</li><li>Stress-test</li><li>Rebalance</li></ul>
+      </article>
+      <article class="pillar rv d1">
+        <span class="no">04 · CIO community</span>
+        <h3>A circle of the world’s leading CIOs.</h3>
+        <p>Join an exclusive community of leading multi-asset Chief Investment Officers from around the world, led by our CIO, with podcasts and in-person events reserved for clients.</p>
+        <ul><li>Global CIOs</li><li>Private events</li><li>Podcasts</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="vista" aria-label="Discipline">
+  <img src="assets/scenery/waterfall.jpg" alt="">
+  <div class="wrap">
+    <span class="eyebrow rv">Discipline</span>
+    <p class="rv d1">Patience and discipline, <em>quietly compounding.</em></p>
+  </div>
+</section>
+
+<!-- ======= Approach ======= -->
+<section class="proc sec" id="approach">
+  <div class="wrap">
+    <div class="head2" style="margin-bottom:0">
+      <div>
+        <span class="eyebrow rv">The approach</span>
+        <h2 class="rv d1">Five disciplined steps, <em>one accountable CIO.</em></h2>
+      </div>
+      <p class="lead rv d2">Our engine does the breadth and our CIO brings the judgement. No portfolio reaches a client without both.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><div class="dot"></div><span class="n">i</span><h3>Screen</h3><p>More than 5,000 funds, measured on the same footing.</p></div>
+      <div class="step rv d1"><div class="dot"></div><span class="n">ii</span><h3>Construct</h3><p>Built to each client’s profile, goals and existing holdings.</p></div>
+      <div class="step rv d2"><div class="dot"></div><span class="n">iii</span><h3>Stress-test</h3><p>Examined against past market cycles before it is proposed.</p></div>
+      <div class="step rv d3"><div class="dot"></div><span class="n">iv</span><h3>Rebalance</h3><p>Revisited each quarter as markets and circumstances change.</p></div>
+      <div class="step rv d3"><div class="dot"></div><span class="n">v</span><h3>CIO review</h3><p>Signed off by our Chief Investment Officer, every time.</p></div>
+    </div>
+    <div class="signoff">
+      <img class="rv" src="assets/team/james.jpg" alt="James Soutar, CFA">
+      <div>
+        <span class="eyebrow rv">Personally validated</span>
+        <blockquote class="rv d1">Every client’s portfolio is reviewed and validated <em>by our CIO, personally.</em></blockquote>
+        <p class="rv d2">No portfolio reaches a client until our Chief Investment Officer has reviewed it and signed it off. He reviews it again at every quarterly rebalance.</p>
+        <div class="who rv d2"><b>James Soutar, CFA</b><span>Co-Founder &amp; Chief Investment Officer</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= Platform ======= -->
+<section class="plat dark sec" id="platform">
+  <div class="wrap">
+    <div class="head2" style="margin-bottom:0">
+      <div>
+        <span class="eyebrow rv">The platform</span>
+        <h2 class="rv d1">Every decision, <em>tested before it reaches you.</em></h2>
+      </div>
+      <p class="lead rv d2">Our proprietary portfolio tools give our CIO an institutional view of the whole fund universe, and of how a portfolio would have behaved through the cycle.</p>
+    </div>
+    <div class="plat-grid">
+      <div class="tabs rv" role="tablist" aria-label="Platform views">
+        <button class="tab" role="tab" aria-selected="true" data-i="0"><span class="n">i · Screen</span><h3>See the whole universe</h3><p>Thousands of funds compared on return, volatility, Sharpe ratio and correlation, with every metric recomputed live over any window.</p></button>
+        <button class="tab" role="tab" aria-selected="false" data-i="1"><span class="n">ii · Construct</span><h3>Build to a purpose</h3><p>Portfolios assembled and weighted to a target level of risk, then saved, compared and refreshed as new prices arrive.</p></button>
+        <button class="tab" role="tab" aria-selected="false" data-i="2"><span class="n">iii · Stress-test</span><h3>Know how it behaves</h3><p>Bull, bear and neutral regimes mapped across the cycle, so each portfolio is judged by how it holds up, not just how it performs.</p></button>
+      </div>
+      <div class="shot rv d1">
+        <div class="screen">
+          <div class="vp">
+            <img class="on" data-i="0" src="assets/platform/screen.jpg" alt="Fund selector screening the fund universe">
+            <img data-i="1" src="assets/platform/build.jpg" alt="Saved portfolios at low, mid and high volatility">
+            <img data-i="2" src="assets/platform/scenarios.jpg" alt="Bull, bear and neutral scenarios mapped across the cycle">
+          </div>
+        </div>
+        <p class="cap">CIO Circle portfolio tools. Figures shown are illustrative, based on historical data, and are not forecasts or the performance of any fund.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= CIO ======= -->
+<section class="sec" id="cio">
+  <div class="wrap cio-grid">
+    <div class="portrait rv"><img src="assets/team/james.jpg" alt="James Soutar, CFA"></div>
+    <div>
+      <span class="eyebrow rv">Meet our CIO</span>
+      <h2 class="rv d1">James Soutar, CFA</h2>
+      <span class="role rv d1">Co-Founder &amp; Chief Investment Officer<a class="li-sm" href="https://www.linkedin.com/in/james-a-soutar-cfa-75019628/" target="_blank" rel="noopener noreferrer" aria-label="James Soutar on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></span>
+      <ul class="creds rv d2">
+        <li>38 years in Asian finance</li>
+        <li>Former Managing Director, Lombard Odier</li>
+        <li>Built a hedge fund acquired by Morgan Stanley</li>
+        <li>Former member, HKEX Listing Committee</li>
+        <li>Runs his own family office, Ratuos</li>
+        <li>In Hong Kong since 1988</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======= Fees ======= -->
+<section class="fees sec" id="fees">
+  <div class="wrap">
+    <div class="head2">
+      <div>
+        <span class="eyebrow rv">Fees</span>
+        <h2 class="rv d1">One transparent fee model. <em>Nothing hidden.</em></h2>
+      </div>
+      <p class="lead rv d2">We are paid by our clients, never by product providers. No commissions, no trailers, no hidden fees. Every investor is on the same simple model.</p>
+    </div>
+    <div class="fee-main">
+      <div class="rv"><span class="k">Management fee</span><b>1.20%<small>p.a.</small></b><p>Of assets under management, charged on the value we look after for you.</p></div>
+      <div class="rv d1"><span class="k">Performance fee</span><b>15%<small>above hurdle</small></b><p>Earned only on returns above a 5–8% hurdle<sup class="fn"><a href="#fn-hurdle" aria-label="Footnote 1">1</a></sup>. If we do not clear it, we take no performance fee.</p></div>
+    </div>
+    <div class="zeros">
+      <div class="rv"><b>0%</b><span>Commission</span></div>
+      <div class="rv d1"><b>0%</b><span>Trailer fees</span></div>
+      <div class="rv d1"><b>0%</b><span>Subscription fee</span></div>
+      <div class="rv d2"><b>0%</b><span>Switching fee</span></div>
+      <div class="rv d2"><b>None</b><span>Hidden fees</span></div>
+    </div>
+    <div class="aligned rv">
+      <span class="eyebrow">The result</span>
+      <p>We do well only when our clients do. <em>Incentives aligned with yours, by design.</em></p>
+    </div>
+    <p class="fee-notes"><span id="fn-hurdle"><sup>1</sup> A hurdle of 5% applies to the Wealth Preservation strategy, and 8% to the Growth strategy and any bespoke portfolio.</span> The hurdle is used only to calculate the performance fee and is not a target or guaranteed return. As a fund of funds, the underlying funds carry their own fees, disclosed in the offering memorandum. Redemptions within 12 months of subscription are subject to a 5% early redemption charge. Terms are governed by the final offering memorandum.</p>
+  </div>
+</section>
+
+<!-- ======= The Circle ======= -->
+<section class="dark sec" id="circle">
+  <div class="wrap">
+    <div class="circle-head">
+      <div>
+        <span class="eyebrow rv">The Circle</span>
+        <h2 class="rv d1">The world’s leading investment minds, <em>around one table.</em></h2>
+      </div>
+      <p class="lead rv d2">Our clients join a private community of multi-asset Chief Investment Officers from around the world, led by our CIO.</p>
+    </div>
+    <figure class="photo rv">
+      <img src="assets/img/luncheon.jpg" alt="Client luncheon with a visiting CIO in Hong Kong">
+      <figcaption>Client luncheon with a visiting CIO · Hong Kong, April 2026</figcaption>
+    </figure>
+    <div class="cfacts">
+      <div class="rv"><b>~US$100B</b><span>Combined assets managed by the CIOs in our circle.</span></div>
+      <div class="rv d1"><b>Two a year</b><span>Podcasts or in-person events committed by each CIO.</span></div>
+      <div class="rv d2"><b>Clients only</b><span>Every session is reserved exclusively for our clients.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= Team ======= -->
+<section class="sec" id="team">
+  <div class="wrap">
+    <div class="head2">
+      <div>
+        <span class="eyebrow rv">Leadership</span>
+        <h2 class="rv d1">Institutional pedigree, <em>personal attention.</em></h2>
+      </div>
+      <p class="lead rv d2">A team drawn from McKinsey, Lombard Odier and leading hedge funds, now working on behalf of families.</p>
+    </div>
+    <div class="team">
+      <article class="member rv">
+        <img src="assets/team/enoch.jpg" alt="Enoch Chan">
+        <h3>Enoch Chan<a class="li-sm" href="https://www.linkedin.com/in/enochan/" target="_blank" rel="noopener noreferrer" aria-label="Enoch Chan on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></h3>
+        <span class="role">Co-Founder &amp; Chief Executive Officer</span>
+        <p>Former Global Partner at McKinsey &amp; Company and a leader of QuantumBlack. Built multi-billion-dollar digital wealth platforms across Asia.</p>
+      </article>
+      <article class="member rv d1">
+        <img src="assets/team/james.jpg" alt="James Soutar">
+        <h3>James Soutar, CFA<a class="li-sm" href="https://www.linkedin.com/in/james-a-soutar-cfa-75019628/" target="_blank" rel="noopener noreferrer" aria-label="James Soutar on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></h3>
+        <span class="role">Co-Founder &amp; Chief Investment Officer</span>
+        <p>38 years in Asian finance. Former Managing Director at Lombard Odier and former member of the HKEX Listing Committee.</p>
+      </article>
+      <article class="member rv d2">
+        <img src="assets/team/hong-tang.jpg" alt="Hong Tang">
+        <h3>Hong Tang</h3>
+        <span class="role">AI &amp; Technology Lead</span>
+        <p>Formerly of McKinsey’s QuantumBlack (Digital &amp; AI) and ThoughtWorks. 15 years building technology for financial services.</p>
+      </article>
+      <article class="member rv d3">
+        <img src="assets/team/joey-chu.jpg" alt="Joey Chu">
+        <h3>Joey Chu</h3>
+        <span class="role">Operations Manager &amp; Compliance Officer</span>
+        <p>Five years in hedge-fund operations and compliance, overseeing the controls behind every client portfolio.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="vista" aria-label="Clarity">
+  <img src="assets/scenery/lake.jpg" alt="">
+  <div class="wrap">
+    <span class="eyebrow rv">Clarity</span>
+    <p class="rv d1">Clarity and calm, <em>in every decision.</em></p>
+  </div>
+</section>
+
+<!-- ======= Foundations ======= -->
+<section class="found sec" style="padding:clamp(96px,11vw,150px) 0">
+  <div class="wrap">
+    <span class="eyebrow rv">Institutional foundations</span>
+    <h2 class="rv d1" style="margin-top:28px;max-width:14em">Structured with the safeguards <em>institutions expect.</em></h2>
+    <dl class="fgrid">
+      <div class="rv"><dt>Structure</dt><dd>Cayman Islands SPC, registered with CIMA as a mutual fund</dd></div>
+      <div class="rv d1"><dt>Manager</dt><dd>A Hong Kong SFC-licensed manager</dd></div>
+      <div class="rv d1"><dt>Administrator</dt><dd>Citco</dd></div>
+      <div class="rv d2"><dt>Auditor</dt><dd>BDO Cayman</dd></div>
+      <div class="rv d2"><dt>Eligibility</dt><dd>Non-US Professional Investors</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ======= Contact ======= -->
+<section class="contact dark sec" id="contact">
+  <img class="contact-bg" src="assets/scenery/horizon.jpg" alt="">
+  <div class="galaxy" aria-hidden="true">
+    <svg viewBox="0 0 1200 1200">
+      <circle class="r" cx="600" cy="600" r="200"/><circle class="r" cx="600" cy="600" r="300"/><circle class="r" cx="600" cy="600" r="400"/><circle class="r" cx="600" cy="600" r="500"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <span class="eyebrow rv">By invitation</span>
+    <h2 class="rv d1">Begin a <em>conversation.</em></h2>
+    <p class="lead rv d2">Introductions are by appointment. We would be glad to learn about your family’s ambitions and how we might serve them.</p>
+    <form class="enq rv d3" id="enq" novalidate>
+      <div class="grid">
+        <div class="fld"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="fld"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="fld"><label for="f-phone">Phone <i>(optional)</i></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="fld"><label for="f-country">Country of residence</label><input id="f-country" name="country" autocomplete="country-name" required></div>
+        <div class="fld"><label for="f-type">I am enquiring as</label>
+          <select id="f-type" name="investor_type" required>
+            <option value="" selected disabled>Select</option>
+            <option>An individual or family</option>
+            <option>A family office</option>
+            <option>A wealth manager or adviser</option>
+            <option>An institution</option>
+            <option>Other</option>
+          </select></div>
+        <div class="fld"><label for="f-assets">Investable assets <i>(optional)</i></label>
+          <select id="f-assets" name="investable_assets">
+            <option value="" selected>Prefer not to say</option>
+            <option>US$250K – 1M</option>
+            <option>US$1M – 5M</option>
+            <option>US$5M – 20M</option>
+            <option>Above US$20M</option>
+          </select></div>
+        <div class="fld full"><label for="f-msg">How may we help? <i>(optional)</i></label><textarea id="f-msg" name="message" rows="3"></textarea></div>
+      </div>
+      <div class="hp" aria-hidden="true"><label>Leave blank<input name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+      <label class="chk"><input type="checkbox" id="f-consent" name="consent" required> <span>I confirm that I am a Professional Investor and consent to CIO Circle contacting me about my enquiry.</span></label>
+      <div class="row">
+        <p class="note">Your details are used only to respond to your enquiry and are never shared.</p>
+        <button class="btn btn-solid" type="submit">Arrange a private conversation <span class="ar">→</span></button>
+      </div>
+      <p class="status" id="enq-status" role="status" aria-live="polite"></p>
+      <div class="thanks">
+        <span class="eyebrow">Thank you</span>
+        <h3>We will be in touch shortly.</h3>
+        <p>A member of our team will contact you personally, usually within one business day.</p>
+      </div>
+    </form>
+    <p class="addr rv d3">45/F Cheung Kong Center · 2 Queen’s Road Central · Hong Kong<br>info@ciocircle.co</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ftop">
+      <img src="assets/img/logo-cream.png" alt="CIO Circle">
+      <div class="flinks">
+        <a href="#proposition">Proposition</a>
+        <a href="#team">Team</a>
+        <a href="mailto:info@ciocircle.co">Contact</a>
+        <button id="reopen">Important information</button>
+        <a class="li" href="https://www.linkedin.com/company/ciocircle/" target="_blank" rel="noopener noreferrer" aria-label="CIO Circle on LinkedIn" style="width:auto;height:auto;margin-top:-3px"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+      </div>
+    </div>
+    <div class="disc">
+      <p>This website is intended only for Professional Investors as defined in the Securities and Futures Ordinance (Cap. 571) of Hong Kong, and is not available to US Persons. It is provided for information only and is not an offer, solicitation or recommendation to buy or sell any security or fund, nor investment advice. Any investment may be made only on the basis of the final offering memorandum and subscription documents. The funds referred to have not been authorised by the Securities and Futures Commission of Hong Kong.</p>
+      <p>All investments involve risk and can result in both profit and loss. As a fund of funds, the fund is also exposed to the risks of its underlying funds, including limited liquidity and an additional layer of fees. Past performance is no indication or guarantee of future performance. Analyses produced by the AI engine rely on historical data and modelling assumptions and are not forecasts. Bespoke portfolio composition is at the discretion of the Investment Manager. Terms are subject to change and are governed by the final offering memorandum.</p>
+    </div>
+    <p class="copy">© 2026 CIO Circle · All rights reserved</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var KEY='cioc-pi-accepted', gate=document.getElementById('gate'), ok=document.getElementById('gate-ok'),
+      enter=document.getElementById('gate-enter'), body=document.body;
+  function accepted(){try{return sessionStorage.getItem(KEY)==='1'}catch(e){return false}}
+  function openGate(){gate.classList.remove('decl');gate.classList.add('open');body.classList.add('locked');setTimeout(function(){ok.focus()},50)}
+  function closeGate(){gate.classList.remove('open');body.classList.remove('locked')}
+  ok.addEventListener('change',function(){enter.disabled=!ok.checked});
+  enter.addEventListener('click',function(){try{sessionStorage.setItem(KEY,'1')}catch(e){}closeGate()});
+  document.getElementById('gate-decline').addEventListener('click',function(){gate.classList.add('decl')});
+  document.getElementById('gate-back').addEventListener('click',function(){gate.classList.remove('decl')});
+  document.getElementById('reopen').addEventListener('click',openGate);
+  if(accepted()){body.classList.remove('locked')}else{openGate()}
+
+  var hdr=document.getElementById('hdr');
+  function onScroll(){hdr.classList.toggle('solid',window.scrollY>40)}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var mb=document.getElementById('menu-btn'), mn=document.getElementById('mnav');
+  function setMenu(o){mn.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);mb.textContent=o?'Close':'Menu'}
+  mb.addEventListener('click',function(){setMenu(!mn.classList.contains('open'))});
+  mn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+
+  var tabs=[].slice.call(document.querySelectorAll('.tab')), shots=[].slice.call(document.querySelectorAll('.screen img'));
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    var i=t.dataset.i;
+    tabs.forEach(function(x){x.setAttribute('aria-selected',x===t)});
+    shots.forEach(function(s){s.classList.toggle('on',s.dataset.i===i)});
+  })});
+
+  var vistas=[].slice.call(document.querySelectorAll('.vista img'));
+  if(vistas.length&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var ticking=false;
+    function par(){vistas.forEach(function(im){var r=im.parentNode.getBoundingClientRect(),vh=innerHeight;
+      if(r.bottom<0||r.top>vh)return;var p=(r.top+r.height/2-vh/2)/(vh+r.height);im.style.transform='translate3d(0,'+(p*-10).toFixed(2)+'%,0)'});ticking=false}
+    window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(par)}},{passive:true});par();
+  }
+
+  // Enquiry form. Set FORM_ENDPOINT to a form-to-email service (e.g. https://formspree.io/f/xxxx)
+  // that forwards to info@ciocircle.co. Until then, submissions open a pre-filled email instead.
+  var FORM_ENDPOINT='https://formspree.io/f/xaeewrbq', TO='info@ciocircle.co';
+  var form=document.getElementById('enq'), status=document.getElementById('enq-status');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){
+      var bad=form.querySelector(':invalid');
+      status.textContent=bad&&bad.type==='checkbox'?'Please confirm the declaration to continue.':'Please complete the required fields.';
+      if(bad)bad.focus();return;
+    }
+    if(form._gotcha.value)return;
+    var f=form.elements, d={name:f.name.value.trim(),email:f.email.value.trim(),phone:f.phone.value.trim(),country:f.country.value.trim(),
+      investor_type:f.investor_type.value,investable_assets:f.investable_assets.value||'Prefer not to say',message:f.message.value.trim()};
+    var subject='Private conversation request — '+d.name;
+    var btn=form.querySelector('button[type=submit]');
+    function done(){form.classList.add('sent');status.textContent=''}
+    function viaMail(){
+      var body=['Name: '+d.name,'Email: '+d.email,'Phone: '+(d.phone||'\u2014'),'Country of residence: '+d.country,'Enquiring as: '+d.investor_type,
+        'Investable assets: '+d.investable_assets,'','Message:',d.message||'\u2014','','Professional Investor confirmation and consent to contact: given'].join('\n');
+      window.location.href='mailto:'+TO+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+      done();
+    }
+    if(!FORM_ENDPOINT){viaMail();return}
+    btn.disabled=true;status.textContent='Sending\u2026';
+    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(Object.assign({_subject:subject,_replyto:d.email},d))})
+      .then(function(r){
+        if(r.ok)return done();
+        btn.disabled=false;status.textContent='Something went wrong. Please email us at '+TO+'.';
+      })
+      .catch(function(){btn.disabled=false;viaMail()}); // network or policy block: fall back to email
+  });
+
+  // LinkedIn posts: official embeds where framing is allowed (ciocircle.co, local preview);
+  // elsewhere (e.g. previews that block third-party frames) show on-brand post cards linking to LinkedIn
+  var canEmbed=/(^|\.)ciocircle\.co$|\.github\.io$|^localhost$|^127\.0\.0\.1$/.test(location.hostname);
+  var fBox=document.querySelector('.feed-frame');
+  if(fBox){
+    if(canEmbed){[].forEach.call(fBox.querySelectorAll('iframe'),function(f){f.src=f.dataset.src})}
+    else{
+      var POSTS=[{u:"7516685096272162816",w:"1 week ago",t:"CIO Circle welcomed Adam Rozencwajg, Co-Founder and Managing Partner of Goehring &amp; Rozencwajg, to our office in Hong Kong for a breakfast sharing on commodities."},{u:"7514258432971956224",w:"1 week ago",t:"CIO Circle and Esperanza are partnering to bring AI-driven portfolio allocation to emerging high-net-worth investors."},{u:"7483182477352648704",w:"3 months ago",t:"65 meetings in 3 days, 8 strategic partnerships being shaped and one MoU already signed at Leap East."}];
+      fBox.innerHTML=POSTS.map(function(p,k){return '<article class="post'+(k?'':' on')+'"><div class="who"><img src="assets/img/logo-cream.png" alt=""><div><b>CIO Circle</b><span>LinkedIn · '+p.w+'</span></div></div><p>'+p.t+'</p><a href="https://www.linkedin.com/feed/update/urn:li:activity:'+p.u+'/" target="_blank" rel="noopener noreferrer">Read on LinkedIn ↗</a></article>'}).join('');
+    }
+  }
+  // switch between posts
+  var fFrames=[].slice.call(document.querySelectorAll('.feed-frame iframe, .feed-frame .post')), fDots=[].slice.call(document.querySelectorAll('.feed-dots button')), fMeta=document.querySelector('.feed-meta');
+  fDots.forEach(function(d,k){d.addEventListener('click',function(){
+    fFrames.forEach(function(f,j){f.classList.toggle('on',j===k)});
+    fDots.forEach(function(x,j){if(j===k)x.setAttribute('aria-current','true');else x.removeAttribute('aria-current')});
+    fMeta.textContent=d.dataset.t;
+  })});
+
+  // Highlight the menu item for the section in view
+  var links=[].slice.call(document.querySelectorAll('.nav a[href^="#"]:not(.cta), .mnav a[href^="#"]'));
+  var spy=links.map(function(a){return a.getAttribute('href')}).filter(function(h,i,arr){return arr.indexOf(h)===i&&h!=='#contact'})
+    .map(function(h){return document.querySelector(h)}).filter(Boolean);
+  var current=null;
+  function setActive(){
+    var line=innerHeight*0.4, hit=null;
+    spy.forEach(function(s){var r=s.getBoundingClientRect();if(r.top<=line&&r.bottom>line)hit='#'+s.id});
+    if(hit===current)return;current=hit;
+    links.forEach(function(a){var on=a.getAttribute('href')===hit;a.classList.toggle('active',on);if(on)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
+  }
+  var spyTick=false;
+  window.addEventListener('scroll',function(){if(!spyTick){spyTick=true;requestAnimationFrame(function(){setActive();spyTick=false})}},{passive:true});
+  window.addEventListener('resize',setActive);setActive();
+
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('in')})}
+})();
+</script>
+</body>
+</html>
